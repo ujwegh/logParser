@@ -26,7 +26,7 @@ public class BackgroundFileProcessor {
 
     @SuppressWarnings("ConstantConditions")
     @Scheduled(fixedDelay = 1000)
-    public void ProcessFiles() {
+    public void processFiles() {
         File in = new File(inFolder);
         int count = 0;
         long start = System.currentTimeMillis();
