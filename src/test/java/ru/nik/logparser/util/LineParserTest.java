@@ -30,11 +30,11 @@ class LineParserTest {
         List<ParsedEvent> events = LineParser.parse("some string test x1=12 x2 = 'long text' some string", eventTypes, null);
         assertEquals(1, events.size());
         ParsedEvent event = events.get(0);
-        assertEquals(1, event.eventTypeId);
-        assertNotNull(event.eventTimestamp);
-        assertEquals(2, event.data.size());
-        assertEquals("12", event.data.get("x1"));
-        assertEquals("long text", event.data.get("x2"));
+        assertEquals(1, event.getEventTypeId());
+        assertNotNull(event.getEventTimestamp());
+        assertEquals(2, event.getData().size());
+        assertEquals("12", event.getData().get("x1"));
+        assertEquals("long text", event.getData().get("x2"));
     }
 
     @Test
@@ -50,15 +50,15 @@ class LineParserTest {
         List<ParsedEvent> events = LineParser.parse("some string test x1=12 x2 = 'long text' some string", eventTypes, null);
         assertEquals(2, events.size());
         ParsedEvent event = events.get(0);
-        assertEquals(1, event.eventTypeId);
-        assertNotNull(event.eventTimestamp);
-        assertEquals(2, event.data.size());
-        assertEquals("12", event.data.get("x1"));
-        assertEquals("long text", event.data.get("x2"));
+        assertEquals(1, event.getEventTypeId());
+        assertNotNull(event.getEventTimestamp());
+        assertEquals(2, event.getData().size());
+        assertEquals("12", event.getData().get("x1"));
+        assertEquals("long text", event.getData().get("x2"));
         event = events.get(1);
-        assertEquals(2, event.eventTypeId);
-        assertNotNull(event.eventTimestamp);
-        assertEquals(1, event.data.size());
-        assertEquals("12", event.data.get("x1"));
+        assertEquals(2, event.getEventTypeId());
+        assertNotNull(event.getEventTimestamp());
+        assertEquals(1, event.getData().size());
+        assertEquals("12", event.getData().get("x1"));
     }
 }

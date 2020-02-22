@@ -24,14 +24,14 @@ public class LineParser {
         Date timestamp = sameDate != null ? sameDate : new Date();
 
         Arrays.stream(eventTypes).forEachOrdered(eventType -> {
-            Pattern pattern = compile(eventType.pattern);
+            Pattern pattern = compile(eventType.getPattern());
             Matcher matcher = pattern.matcher(line);
 
             Map<String, String> params;
             if (matcher.find()) {
                 params = new HashMap<>();
 
-                eventType.data.forEach((key, value1) -> {
+                eventType.getData().forEach((key, value1) -> {
                     Pattern parameterPattern = compile(value1);
                     Matcher parameterMatcher = parameterPattern.matcher(line);
                     String value = null;
@@ -46,7 +46,7 @@ public class LineParser {
                         params.put(key, value);
                     }
                 });
-                events.add(new ParsedEvent(eventType.id, timestamp, params));
+                events.add(new ParsedEvent(eventType.getId(), timestamp, params));
             }
         });
         return events;

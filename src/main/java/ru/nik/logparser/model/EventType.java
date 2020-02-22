@@ -1,16 +1,16 @@
 package ru.nik.logparser.model;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Map;
 
+@Getter
+@Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class EventType {
-    public int id;
-    public String pattern;
-    public Map<String, String> data;
+    private int id;
+    private String pattern;
+    private Map<String, String> data;
 }

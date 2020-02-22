@@ -1,13 +1,17 @@
 package ru.nik.logparser.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 import java.util.Map;
 
+@Getter
+@Setter
 @AllArgsConstructor
 public class ParsedEvent {
-    public int eventTypeId;
-    public Date eventTimestamp;
-    public Map<String, String> data;
+    private int eventTypeId;
+    private Date eventTimestamp;
+    private Map<String, String> data;
 }

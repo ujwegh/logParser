@@ -22,8 +22,8 @@ public class ApiController {
         EventService.addEventType(event);
     }
 
-    @DeleteMapping
-    public void delete(@RequestBody int id) {
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") int id) {
         log.info("Delete event type with id: {}", id);
         EventService.deleteEventType(id);
     }

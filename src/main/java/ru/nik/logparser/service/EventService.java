@@ -65,7 +65,7 @@ public class EventService {
             int size = events.length;
             EventType[] eventTypes = Arrays.copyOf(events, size);
             EventType eventTypeToRemove = Arrays.stream(eventTypes)
-                    .filter(et -> et.id == id).findFirst().orElse(null);
+                    .filter(et -> et.getId() == id).findFirst().orElse(null);
             ArrayUtils.removeElement(eventTypes, eventTypeToRemove);
             events = eventTypes;
             writeEvents();
