@@ -33,10 +33,10 @@ public class FileParser {
 
                 for (ParsedEvent event : events) {
                     ObjectNode node = mapper.createObjectNode();
-                    node.put("eventTypeId", event.eventTypeId);
-                    node.put("timestamp", df.format(event.eventTimestamp));
+                    node.put("eventTypeId", event.getEventTypeId());
+                    node.put("timestamp", df.format(event.getEventTimestamp()));
                     ObjectNode data = mapper.createObjectNode();
-                    for (Map.Entry<String, String> entry : event.data.entrySet()) {
+                    for (Map.Entry<String, String> entry : event.getData().entrySet()) {
                         data.put(entry.getKey(), entry.getValue());
                     }
                     node.set("data", data);
